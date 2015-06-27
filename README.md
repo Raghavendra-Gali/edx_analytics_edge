@@ -2,6 +2,9 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+#### Week 3
+This week covered Logistic Regression, and gave a great overview of how best to set the threshold of the predictor to tune between sensitivity and specificity. The AUC is a metric overall of how well the model performs across a range of thresholds.
+
 #### Week 2
 This week focused on Linear Regression, and had a number of assignments. I didn't complete the optional assigments this week due to time. The course is taking around 6 hours a week according to my Toggl summaries.
 
