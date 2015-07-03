@@ -16,6 +16,8 @@ Either method can be used to make a classifier (add method="class" to the rpart 
 
 To search for an optimum value of cp, you can use k-folds cross validation with a grid search of the cp values.
 
+Note: This week, the ClaimsData for the D2Hawkeye example was very large (17MB) so I deleted the csv after I finished. To run this script, just unzip the ClaimsData.csv.zip.
+
 ~~~R
 # Create a binary CART classifier from training data, predict on testing data and show confusion matrix
 CARTb = rpart(isB ~ . - letter, data=lettersTrain, method="class")
