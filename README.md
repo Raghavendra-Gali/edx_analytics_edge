@@ -2,6 +2,42 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+
+#### Week 5 (Text Analytics)
+
+The Text Analytics in this week's videos and assignments had a similar flow. The first step is to create a corpus of all the terms in the natural language source, and then convert to lowercase, remove punctuation, remove stopwords, stem the remaining words, prune the feature space by discarding infrequent terms, and finally convert back into a dataframe. 
+
+The dependent variable can then be added into the dataframe, and any classification models can be used with the resulting terms (Logistic Regression, CART, Random Forests, etc).
+
+
+
+~~~R
+# Prepare the corpus, including all pre-processing
+corpus = Corpus(VectorSource(emails$text))
+corpus = tm_map(corpus, tolower)
+corpus = tm_map(corpus, PlainTextDocument)
+corpus = tm_map(corpus, removePunctuation)
+corpus = tm_map(corpus, removeWords, stopwords("english"))
+corpus = tm_map(corpus, stemDocument)
+
+# Create Document Term Matrices for Title and Abstract, print out how many words
+dtm = DocumentTermMatrix(corpus)
+
+# Limit the words to those in at least 95% of docs
+sparseDtm = removeSparseTerms(dtm, 0.95)
+
+# Convert DTM to matrices
+sparseDtmFrame = as.data.frame(as.matrix(sparseDtm))
+
+# If some of the words begin with numbers, add a letter automatically so R can handle the columns.
+colnames(sparseDtmFrame) = make.names(colnames(sparseDtmFrame))
+
+# Now add in the dependent variable to the dataframe of words
+sparseDtmFrame$dependentVar = trainData$dependentVar
+
+# Use any classification model as needed.
+~~~
+
 #### Week 4 (Trees)
 This week focused on using CART to build a single tree, or random forests to build a randomised assortment of trees which are then combined to give a single model.
 
@@ -87,6 +123,7 @@ The hardest thing about this week's assignment was keeping track of how to calcu
 * SSE (Sum of Squared Errors) : Take the sum of the squared differences between the actual and predicted values.
 * SST (Total Sum of Squares) : Disregard all the coefficients of the model apart from the intercept value, and calculate the SSE using this flat line.
 * R^2 = 1 - (SSE / SST) : This quantifies how well the coefficients of the independent variables approximate the real data.
+
 
 
 #### Week 1 (Introduction to R)
