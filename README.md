@@ -2,6 +2,44 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+#### Week 6 (Clustering)
+
+Two methods of clustering were covered in this week, Hierarchical and K-Means. Hierarchical clustering is O(n^2) complexity, which means it isn't suitable for problems with a large number of observations and features.
+
+~~~R
+
+# Common steps before Hierarchical and K-Means clustering
+
+# Use the caret library to convert mean to 0, an standard deviation to 1
+preproc = preProcess(airlines)
+airlinesNorm = predict(preproc, airlines)
+
+# Hierarchical clustering
+
+# Compute pairwise distances between each of the observations
+distances = dist(airlinesNorm, method="euclidean")
+
+# Create clusters and plot them on a dendogram. 
+clusters = hclust(distances, method = "ward.D")
+plot(clusters)
+
+# Based on the dendogram plot, choose a number of clusters and create them
+clusterGroups = cutree(clusters, k = <cluster_number>)
+table(clusterGroups)
+
+# K-Means clustering
+
+# Set the seed, and number of clusters required
+set.seed(88)
+k = 5
+
+# Do the actual k-means clustering (notice the distances vector isn't used)
+KMC = kmeans(airlinesNorm, centers=k, iter.max = 1000)
+str(KMC)
+table(KMC$cluster)
+
+~~~
+
 
 #### Week 5 (Text Analytics)
 
