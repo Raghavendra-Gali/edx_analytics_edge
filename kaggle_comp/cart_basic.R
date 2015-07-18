@@ -23,7 +23,7 @@ ebay = read.csv("eBayiPadTrain.csv")
 
 # Split the data with all variables into a training and test set
 set.seed(123)
-split = sample.split(ebay, SplitRatio = 0.7)
+split = sample.split(ebay$sold, SplitRatio = 0.7)
 ebayTrain = subset(ebay, split == TRUE)
 ebayTest = subset(ebay, split == FALSE)
 
@@ -41,12 +41,12 @@ PredTest = predict(ebayCART, newdata=ebayTest)
 
 # Baseline accuracy = 0.5517751
 table(ebayTest$sold)
-373 / nrow(ebayTest)
+300 / nrow(ebayTest)
 
 PredTestClass = PredTest[,2] > 0.5
 
 table(ebayTest$sold , PredTestClass)
-(335 + 199) / nrow(ebayTest)
+(266 + 179) / nrow(ebayTest)
 
 # Compute the accuracy on the test set
 ROCRpred = prediction(PredTest[,2], ebayTest$sold)

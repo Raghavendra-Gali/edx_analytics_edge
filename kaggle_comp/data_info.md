@@ -28,7 +28,9 @@ The independent variables consist of 9 pieces of product data available at the t
 Ideas to improve results
 
 - Can you impute the sold variable on the test set and use that to increase the amount of observations?
-- Tune the threshold?
+- Tune the threshold? Doesn't affect AUC, only accuracy
+- Missing data?
+- People describe the quality / standard of the ipad in the ebay description .. can you pull this out?
 
 
 ## Results
@@ -37,8 +39,9 @@ Ideas to improve results
 
 Logistic Regression model using biddable, startprice, condition, cellular, carrier, color, storage, productline. Threshold 0.5.
 
-- Accuracy : 0.7943787
-- **AUC : 0.8395889**
+- Baseline Accuracy : 0.5376344
+- Accuracy : 0.7795699
+- **AUC : 0.838792**
 
 ~~~
 	                                 Estimate Std. Error z value Pr(>|z|)    
@@ -85,9 +88,9 @@ productlineUnknown                 3.406e-01  3.952e-01   0.862  0.38885
 
 Logistic Regression model using biddable, startprice, productline. Threshold 0.5
 
-- Baseline accuracy : 0.5517751
-- Accuracy : 0.7751479
-- **AUC : 0.8386908**
+- Baseline accuracy : 0.5376344
+- Accuracy : 0.7867384
+- **AUC : 0.8447739**
 
 ~~~
 Coefficients:
@@ -112,9 +115,9 @@ productlineUnknown          -2.564e-02  2.996e-01  -0.086 0.931819
 Entry-level CART-based classifier using the significant varibles found from Logistic Regression to predict.
 
 - Variables used in CART : biddable + startprice + condition + cellular + carrier + color + storage + productline
-- Baseline accuracy : 0.5517751
-- Accuracy : 0.7899408
-- **AUC : 0.814947**
+- Baseline accuracy : 0.5376344
+- Accuracy : 0.797491
+- **AUC : 0.8097481**
 - Splits in the tree (top-to-bottom)
 	- biddable, startprice >= 140 , productline, startprice >= 388
 
@@ -122,9 +125,20 @@ Entry-level CART-based classifier using the significant varibles found from Logi
 Entry-level Random Forest classifier using significant variables from Logistic Regression to predict.
 
 - Variables : biddable + startprice + condition + cellular + carrier + color + storage + productline
+- Baseline accuracy : 0.5376344
+- Accuracy : 0.8010753
+- **AUC : 0.8093217**
+
+### logistic\_regression_simple_text
+
+Logistic Regression model using biddable, startprice, productline. The text of the review is also processed and added to the training data. Threshold 0.5 (doesn't affect AUC)
+
 - Baseline accuracy : 0.5517751
-- Accuracy : 0.7899408
-- **AUC : 0.814947**
+- Accuracy :
+- **AUC : **
+
+~~~
+~~~
 
 
 
