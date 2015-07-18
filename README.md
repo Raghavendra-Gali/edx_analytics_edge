@@ -2,6 +2,42 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+#### Week 7 (Visualization)
+The visualisations in this week's lectures were bar graphs, histograms, line graphs, heatmaps, word clouds, and plots of geographical data.
+
+Each graph has 3 components in the ggplot library
+
+- Data : The datasource for the visualization
+- Aesthetic mapping : How to map the data into graphical attributes
+- Geometric objects : How the values are rendered.
+
+~~~R
+# ggplot2 library used for all the visualizations
+library(ggplot2)
+
+# Color palette generator
+library(RColorBrewer)
+
+# Color palette : display all colors available
+display.brewer.all()
+
+# Line graph example
+ggplot(melt(households, id="Year"), aes(x=Year, y=value, color=variable)) +
+  geom_line(size=2) +
+  geom_point(size=5) +
+  ylab("Percentage of households")
+
+# Histogram example
+ggplot(data = parole, aes(x = age)) + 
+	geom_histogram(binwidth = 5, color="blue")
+
+# Heatmap example
+ggplot(DayHourCounts, aes(x = Hour, y = Var1)) + 
+	geom_tile(aes(fill=Freq)) + 
+	scale_fill_gradient(name="Total MV Thefts", low="white", high="red") + 
+	theme(axis.title.y = element_blank())
+~~~
+
 #### Week 6 (Clustering)
 
 Two methods of clustering were covered in this week, Hierarchical and K-Means. Hierarchical clustering is O(n^2) complexity, which means it isn't suitable for problems with a large number of observations and features.
@@ -50,6 +86,10 @@ The dependent variable can then be added into the dataframe, and any classificat
 
 
 ~~~R
+# Useful libraries for NLP 
+library(tm)
+library(SnowballC)
+
 # Prepare the corpus, including all pre-processing
 corpus = Corpus(VectorSource(emails$text))
 corpus = tm_map(corpus, tolower)
@@ -93,6 +133,14 @@ To search for an optimum value of cp, you can use k-folds cross validation with 
 Note: This week, the ClaimsData for the D2Hawkeye example was very large (17MB) so I deleted the csv after I finished. To run this script, just unzip the ClaimsData.csv.zip.
 
 ~~~R
+# CART modelling and plotting libraries
+library(rpart)
+library(rpart.plot)
+
+# Cross-validation libraries
+library(caret)
+library(e1071)
+
 # Create a binary CART classifier from training data, predict on testing data and show confusion matrix
 CARTb = rpart(isB ~ . - letter, data=lettersTrain, method="class")
 CARTbPred = predict(CARTb, newdata = lettersTest, type="class")
@@ -130,6 +178,8 @@ There were a few different definitions that I need to memorise. N below is the t
 There were a few sequences of commands that cropped up again and again which I copied below:
 
 ~~~R
+# caTools library is used to split up data into training and test data
+library("caTools")
 
 # Splitting dataset into training and test using 'caTools' library
 # Assume the overal dataframe is 'data', Training data %age is 'p'
