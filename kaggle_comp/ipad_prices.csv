@@ -1,0 +1,26 @@
+cellular,productline,16,32,64,128
+0,iPad 1,NA,NA,NA,NA
+0,iPad 2,NA,NA,NA,NA
+0,iPad 3,NA,NA,NA,NA
+0,iPad 4,NA,NA,NA,NA
+0,iPad 5,NA,NA,NA,NA
+0,iPad Air,399,449,NA,NA
+0,iPad Air 2,499,NA,599,699
+0,iPad mini,209,NA,NA,NA
+0,iPad mini 2,299,349,NA,NA
+0,iPad mini 3,399,NA,499,599
+0,iPad mini Retina,NA,NA,NA,NA
+0,Unknown,NA,NA,NA,NA
+1,iPad 1,NA,NA,NA,NA
+1,iPad 2,NA,NA,NA,NA
+1,iPad 3,NA,NA,NA,NA
+1,iPad 4,NA,449,499,589
+1,iPad 5,NA,NA,NA,NA
+1,iPad Air,529,579,NA,NA
+1,iPad Air 2,629,NA,729,829
+1,iPad mini,309,359,409,NA
+1,iPad mini 2,429,479,NA,NA
+1,iPad mini 3,529,NA,629,729
+1,iPad mini Retina,NA,NA,NA,NA
+1,Unknown,NA,NA,NA,NA
+

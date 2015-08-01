@@ -44,7 +44,7 @@ PredTest = predict(FirstLogRegModel, newdata=ebayTest, type="response")
 table(ebayTest$sold)
 300 / nrow(ebayTest)
 
-# Model accuracy = 0.7943787
+# Model accuracy
 table(ebayTest$sold , PredTest > 0.5)
 (246 + 189) / nrow(ebayTest)
 
@@ -55,8 +55,6 @@ as.numeric(performance(ROCRpred, "auc")@y.values)
 # Plotting AUC with colour highlighting of thresholds
 ROCRperf = performance(ROCRpred, "tpr", "fpr")
 plot(ROCRperf, colorize=TRUE, print.cutoffs.at=seq(0,1,0.1), text.adj=c(-0.2,1.7))
-
-
 
 # Un-comment these lines to make the submission csv file
 # MySubmission = data.frame(UniqueID = eBayTest$UniqueID, Probability1 = PredTest)

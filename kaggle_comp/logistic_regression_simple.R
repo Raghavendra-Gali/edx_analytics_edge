@@ -18,7 +18,7 @@ ebay = read.csv("eBayiPadTrain.csv")
 # eBayTest = read.csv("eBayiPadTest.csv")
 
 # Split the data with all variables into a training and test set
-set.seed(123)
+set.seed(12)
 split = sample.split(ebay$sold, SplitRatio = 0.7)
 ebayTrain = subset(ebay, split == TRUE)
 ebayTest = subset(ebay, split == FALSE)
@@ -33,9 +33,6 @@ FirstLogRegModel = glm(sold ~ biddable + startprice + productline,
 
 summary(FirstLogRegModel)
 
-# No way to do cross validation ! Predict on test set (won't pick up generalization)
-
-
 # And then make predictions on the test set:
 PredTest = predict(FirstLogRegModel, newdata=ebayTest, type="response")
 
@@ -43,8 +40,9 @@ PredTest = predict(FirstLogRegModel, newdata=ebayTest, type="response")
 table(ebayTest$sold)
 300 / nrow(ebayTest)
 
+# Model accuracy
 table(ebayTest$sold , PredTest > 0.5)
-(250 + 189) / nrow(ebayTest)
+(252 + 186) / nrow(ebayTest)
 
 # Compute the accuracy on the test set
 ROCRpred = prediction(PredTest, ebayTest$sold)
@@ -57,5 +55,8 @@ plot(ROCRperf, colorize=TRUE, print.cutoffs.at=seq(0,1,0.1), text.adj=c(-0.2,1.7
 
 
 # Un-comment these lines to make the submission csv file
-# MySubmission = data.frame(UniqueID = eBayTest$UniqueID, Probability1 = PredTest)
+# 
+# ebaySub = read.csv("eBayiPadTest.csv")
+# PredTest = predict(FirstLogRegModel, newdata=ebaySub, type="response")
+# MySubmission = data.frame(UniqueID = ebaySub$UniqueID, Probability1 = PredTest)
 # write.csv(MySubmission, "SubmissionSimpleLog.csv", row.names=FALSE)
