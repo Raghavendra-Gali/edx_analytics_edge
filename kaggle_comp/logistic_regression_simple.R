@@ -7,15 +7,7 @@
 library(caTools)
 library(ROCR)
 
-# tim : Extra code to change into the kaggle directory and clear variables
-rm(list=ls())
-setwd("/Users/tim/Dropbox/courses/Analytics Edge/edx_analytics_edge/kaggle_comp")
-
-# As this is logistic regression-only, read in strings as factors. Not planning any text analysis (yet)
-# So no stringsAsFactors=FALSE
-# The eBayTest doesn't have the dependent variable in it, so we can't evaluate AUC on it :-(
-ebay = read.csv("eBayiPadTrain.csv")
-# eBayTest = read.csv("eBayiPadTest.csv")
+source("data_preprocess.R")
 
 # Split the data with all variables into a training and test set
 set.seed(12)

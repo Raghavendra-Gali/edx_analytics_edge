@@ -17,7 +17,7 @@ str(ebayNonBiddable)
 str(ebayBiddable)
 
 # Split the data with all variables into a training and test set
-set.seed(12)
+# set.seed(12)
 splitBiddable = sample.split(ebayBiddable$sold, SplitRatio = 0.7)
 ebayBiddableTrain = subset(ebayBiddable, splitBiddable == TRUE)
 ebayBiddableTest = subset(ebayBiddable, splitBiddable == FALSE)
@@ -32,8 +32,8 @@ str(ebayNonBiddableTrain)
 str(ebayNonBiddableTest)
 
 # Create separate logistic regressions using different variables for each
-biddableLogReg= glm(sold ~ startprice + condition + storage + productline, data=ebayBiddableTrain, family=binomial)
-NonBiddableLogReg = glm(sold ~ startprice + productline,  data=ebayNonBiddableTrain, family=binomial)
+biddableLogReg= glm(sold ~ startprice + condition + storage, data=ebayBiddableTrain, family=binomial)
+NonBiddableLogReg = glm(sold ~ discount + discounted,  data=ebayNonBiddableTrain, family=binomial)
 
 summary(biddableLogReg)
 summary(NonBiddableLogReg)
@@ -54,7 +54,7 @@ str(PredTest)
 str(ebayTest)
 
 table(ebayTest$sold , PredTest > 0.5)
-(274 + 176) / nrow(ebayTest)
+(275 + 176) / nrow(ebayTest)
 
 # Compute the accuracy on the test set
 ROCRpred = prediction(PredTest, ebayTest$sold)

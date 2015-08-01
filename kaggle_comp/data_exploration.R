@@ -60,8 +60,9 @@ plot()
 hist(subset(ebayNonBiddable, sold == 1)$startprice )
 
 
-ebayNonBiddableMelt = melt(ebayNonBiddable, sold)
-ggplot(ebayNonBiddable, aes(startprice)) + 
+ebayNonBiddableMelt = melt(ebayNonBiddable, id.vars = 'startprice')
+
+ggplot(ebayNonBiddableMelt, aes(startprice)) + 
   geom_bar(aes(fill = sold), position = "dodge")
 
 

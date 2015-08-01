@@ -15,8 +15,7 @@ prices = read.csv("ipad_prices.csv")
 summary(prices)
 str(prices)
 
-plot(prices$productline, prices$cellular)
 prices
-
+table(prices$productline)
 
 

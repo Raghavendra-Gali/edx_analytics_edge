@@ -43,12 +43,12 @@ def processData(inputFileName, outputFileName):
     iPadWifi['iPad 2']           = ['199', '249',  '299',  '349',  'NA']
     iPadWifi['iPad 3']           = ['249', '299',  '349',  '399',  'NA']
     iPadWifi['iPad 4']           = ['299', '349',  '399',  '449',  'NA']
-    iPadWifi['iPad 5']           = [ 'NA',  'NA',   'NA',   'NA',  'NA']
+    iPadWifi['iPad 5']           = iPadWifi['iPad 4']
     iPadWifi['iPad Air']         = ['399', '499',  '599',  '699',  'NA']
-    iPadWifi['iPad Air 2']       = ['499',  'NA',  '599',  '699',  'NA']
+    iPadWifi['iPad Air 2']       = ['499', '549',  '599',  '699',  'NA']
     iPadWifi['iPad mini']        = ['209', '249',  '299',  '349',  'NA']
     iPadWifi['iPad mini 2']      = ['299', '349',  '399',  '449',  'NA']
-    iPadWifi['iPad mini 3']      = ['399',  'NA',  '499',  '599',  'NA']
+    iPadWifi['iPad mini 3']      = ['399', '449',  '499',  '599',  'NA']
     iPadWifi['iPad mini Retina'] = iPadWifi['iPad mini 2']
     iPadWifi['Unknown']          = ['299', '349',  '399',  '449',  'NA']
     
@@ -58,12 +58,12 @@ def processData(inputFileName, outputFileName):
     iPadCell['iPad 2']           = ['329',  '379',  '429',  '479',  'NA']
     iPadCell['iPad 3']           = ['379',  '429',  '479',  '529',  'NA']
     iPadCell['iPad 4']           = ['429',  '479',  '529',  '589',  'NA']
-    iPadCell['iPad 5']           = ['NA',    'NA',   'NA',   'NA',  'NA']
+    iPadCell['iPad 5']           = iPadCell['iPad 4']
     iPadCell['iPad Air']         = ['529',  '579',  '629',  '679',  'NA']
-    iPadCell['iPad Air 2']       = ['629',   'NA',  '729', ' 829',  'NA']
+    iPadCell['iPad Air 2']       = ['629',  '659',  '729', ' 829',  'NA']
     iPadCell['iPad mini']        = ['309',  '359',  '409',  '459',  'NA']
     iPadCell['iPad mini 2']      = ['429',  '479',  '529',  '579',  'NA']
-    iPadCell['iPad mini 3']      = ['529',   'NA',  '629',  '729',  'NA']
+    iPadCell['iPad mini 3']      = ['529',  '579',  '629',  '729',  'NA']
     iPadCell['iPad mini Retina'] = iPadWifi['iPad mini 2']
     iPadCell['Unknown']          = ['429',  '479',  '529',  '579',  'NA']
 
@@ -129,7 +129,7 @@ def processData(inputFileName, outputFileName):
                         storageValueIndex = 4
 
                     if (currentCellular == "Unknown"):
-                        price = 'NA'
+                        price = iPads['0'][currentModel][storageValueIndex]
                     else:
                         price = iPads[currentCellular][currentModel][storageValueIndex]
                         
