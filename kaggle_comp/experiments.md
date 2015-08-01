@@ -261,10 +261,10 @@ Entry-level Random Forest classifier using significant variables from Logistic R
 ### forest_basic_text
 Entry-level Random Forest classifier using significant variables and text features
 
-- Variables : biddable + discount + productline
+- Variables : biddable + discount + productline + 95% text features
 - Baseline accuracy : 0.5376344
 - Accuracy : 0.8010753
-- **AUC : 0.8606072**
+- **AUC : 0.8699677 (highest seen) **
 
 
 

@@ -23,7 +23,7 @@ str(ebayTest)
 str(ebayTrain)
 
 # Start with a simple CART model predicting based on all the independent vars
-ebayCART = rpart(sold ~ biddable + startprice + condition + cellular + 
+ebayCART = rpart(sold ~ biddable + discounted + startprice + condition + cellular + 
                    carrier + color + storage + productline, data=ebayTrain, method="class")
 prp(ebayCART)
 # summary(ebayCART)
