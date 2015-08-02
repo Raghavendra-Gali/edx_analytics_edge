@@ -41,7 +41,7 @@ summary(as.factor(ebaySub$storageInteger))
 ebay$discount = ebay$retailprice - ebay$startprice
 ebay$discount[is.na(ebay$discount)] = 0
 ebaySub$discount = ebaySub$retailprice - ebaySub$startprice
-ebay$discount[is.na(ebay$discount)] = 0
+ebaySub$discount[is.na(ebaySub$discount)] = 0
 
 ebay$discounted = ebay$discount > 0
 ebaySub$discounted = ebaySub$discount > 0

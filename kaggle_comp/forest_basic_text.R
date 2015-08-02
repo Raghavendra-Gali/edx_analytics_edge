@@ -62,6 +62,7 @@ plot(ROCRperf, colorize=TRUE, print.cutoffs.at=seq(0,1,0.1), text.adj=c(-0.2,1.7
 # Un-comment these lines to make the submission csv file
 PredSub = predict(ebayForest, newdata=ebaySub)
 MySubmission = data.frame(UniqueID = ebaySub$UniqueID, Probability1 = PredSub)
+summary(MySubmission)
 write.csv(MySubmission, "forest_basic_text_submission.csv", row.names=FALSE)
 
 
