@@ -2,6 +2,24 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+#### Week 8 (Kaggle Competition)
+
+I tried a lot of models, my private ranking was 222/1884, public was 783/1884. I definitely overfitted to tha AUC given on the public leaderboard !
+
+##### Models I tried:
+- Logistic Regression
+- CART
+- Random Forests
+
+##### Feature engineering
+I constructed an elaborate market price estimator based on Apple's online store. I also followed the example to extract text features from the auctions.
+
+I also kept notebooks on the following:
+
+- Ideas for data exploration, feature engineering, things to try.
+- Results of experiments, including the accuracy and AUC value. This was helpful in remembering what I had already tried, and which performed best.
+
+
 #### Week 7 (Visualization)
 The visualisations in this week's lectures were bar graphs, histograms, line graphs, heatmaps, word clouds, and plots of geographical data.
 
