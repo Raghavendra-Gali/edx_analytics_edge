@@ -14,6 +14,7 @@ ebayTextFeatures$biddable = ebay$biddable
 ebayTextFeatures$discount = ebay$discount
 ebayTextFeatures$discounted = ebay$discounted
 ebayTextFeatures$productline = ebay$productline
+ebayTextFeatures$cellular = ebay$cellular
 ebayTextFeatures$sold = ebay$sold
 ebay = ebayTextFeatures
 
@@ -22,6 +23,7 @@ ebaySubTextFeatures$biddable = ebaySub$biddable
 ebaySubTextFeatures$discount = ebaySub$discount
 ebaySubTextFeatures$discounted = ebaySub$discounted
 ebaySubTextFeatures$productline = ebaySub$productline
+ebaySubTextFeatures$cellular = ebaySub$cellular
 ebaySub = ebaySubTextFeatures
 
 
@@ -53,7 +55,7 @@ table(ebayTest$sold , PredTestClass)
 
 # Compute the accuracy on the test set
 ROCRpred = prediction(PredTest, ebayTest$sold)
-as.numeric(performance(ROCRpred, "auc")@y.values)
+AUC = as.numeric(performance(ROCRpred, "auc")@y.values)
 
 # Plotting AUC with colour highlighting of thresholds
 ROCRperf = performance(ROCRpred, "tpr", "fpr")
@@ -65,4 +67,6 @@ MySubmission = data.frame(UniqueID = ebaySub$UniqueID, Probability1 = PredSub)
 summary(MySubmission)
 write.csv(MySubmission, "forest_basic_text_submission.csv", row.names=FALSE)
 
+# Print out the AUC last
+AUC
 
