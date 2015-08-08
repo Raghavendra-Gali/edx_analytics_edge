@@ -2,6 +2,10 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+#### Week 10 (Integer Optimization)
+
+Integer optimization is closely related to linear optimization, but all the variables have to be an integer. They can be binary, or multi-value. You can specify logical functions by adding values, and setting constraints accordingly.
+
 #### Week 9 (Linear Optimization)
 This week used Excel sheets to set up an optimization problem. Each problem was formulated as follows:
 
