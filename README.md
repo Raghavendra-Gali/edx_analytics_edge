@@ -2,9 +2,16 @@
 
 ### EDX Course MITx - 15.071x (Summer 2015)
 
+#### Week 9 (Linear Optimization)
+This week used Excel sheets to set up an optimization problem. Each problem was formulated as follows:
+
+- **Objective function** : This is what you want to minimise or maximise depending on the use-case. This is a real number (not integer) for linear optimization. 
+- **Decision variables** : These are the things under your control, which you can vary to set up different solutions. For example when blending gasoline, how much of each type of crude to use.
+- **Constraints** : These are limiting factors which the model uses when optimising. A common constraint is that the decision variables can't be negative. Others are domain-specific to the model.
+
 #### Week 8 (Kaggle Competition)
 
-I tried a lot of models, my private ranking was 222/1884, public was 783/1884. I definitely overfitted to tha AUC given on the public leaderboard !
+I tried a lot of models, my private ranking was 222/1884, public was 783/1884. My AUC actually increased going from the private to public leaderboard, but others increased by more.
 
 ##### Models I tried:
 - Logistic Regression
